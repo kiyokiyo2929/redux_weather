@@ -3,8 +3,9 @@ import './App.css';
 import Search from "./components/Search"
 import Information from './components/Information';
 import Map from "./components/Map";
-import WeeklyReports from './components/WeeklyReport';
+import DailyReports from './components/DailyReport';
 import HourlyReports from './components/HourlyReport';
+import TodayReport from './components/TodayReport';
 
 function App() {
   return (
@@ -12,8 +13,9 @@ function App() {
       <Search/>
       <Information/>
       <Map/>
-      <WeeklyReports/>
+      <DailyReports/>
       <HourlyReports/>
+      <TodayReport/>
     </div>
   );
 }

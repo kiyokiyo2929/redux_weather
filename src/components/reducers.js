@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { CHANGE_INPUT, CHANGE_CITY, CHANGE_COUNTRY, CHANGE_STATE, CHANGE_LAT, CHANGE_LON, INITIALIZE_CITY, REQEST_DATA, RECEIVE_DATA_SUCCESS, RECEIVE_DATA_FAILED, RECEIVE_DATA_RETURN, SELECT_CITY, CHANGE_WEEKLY, CHANGE_HOURLY } from "./actions";
+import { CHANGE_INPUT, CHANGE_CITY, CHANGE_COUNTRY, CHANGE_STATE, CHANGE_LAT, CHANGE_LON, INITIALIZE_CITY, REQEST_DATA, RECEIVE_DATA_SUCCESS, RECEIVE_DATA_FAILED, RECEIVE_DATA_RETURN, SELECT_CITY, CHANGE_DAILY, CHANGE_HOURLY, CHANGE_TODAY} from "./actions";
 
 const initialState = {
     city:{
@@ -18,19 +18,16 @@ const initialState = {
     input:{
         inputName:"",
     },
-    weeklyWeather:{
-        weeklyArray:[]
+    dailyWeather:{
+        dailyArray:[],
     },
     hourlyWeather:{
         hourlyArray:[]
+    },
+    todayWeather:{
+        todayArray:"",
     }
-    // map:{
-    //     width: '42.5vw',
-    //     height:'25vh',
-    //     latitude:52.519334503212846,
-    //     longitude:13.415270749959939, 
-    //     zoom:10
-    // }
+
 }
 
 const inputReducer = (state = initialState.input, action) => {
@@ -115,25 +112,13 @@ const listReducer = (state =initialState.list, action) => {
    }
 }
 
-// const mapReducer = (state = initialState.map, action) => {
-//     switch (action.type){
-//        case CHANGE_MAP:
-//            return {
-//                ...state,
-//                latitude: lat,
-//                longitude: lon
-//            }
-//        default:
-//            return state
-//         }
-// }
 
-const weeklyReducer = (state = initialState.weeklyWeather, action ) => {
+const dailyReducer = (state = initialState.dailyWeather, action ) => {
         switch(action.type){
-            case CHANGE_WEEKLY:
+            case CHANGE_DAILY:
                 return {
                     ...state,
-                    weeklyArray:action.weeklyArray
+                    dailyArray:action.dailyArray
                 }
             default:
                  return state
@@ -152,12 +137,25 @@ const hourlyReducer = (state = initialState.hourlyWeather, action ) => {
         }
 }
 
+const todayReducer = (state = initialState.todayWeather, action) => {
+    switch(action.type){
+        case CHANGE_TODAY:
+            return {
+                ...state,
+                todayArray:action.todayArray
+            }
+        default:
+            return state
+    }
+}
+
 const rootReducer = combineReducers({
     cityReducer,
     listReducer,
     inputReducer,
-    weeklyReducer,
-    hourlyReducer
+    dailyReducer,
+    hourlyReducer,
+    todayReducer,
 })
 
 export default rootReducer

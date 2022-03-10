@@ -11,15 +11,14 @@ export const RECEIVE_DATA_RETURN = "RECEIVE_DATA_RETURN"
 export const SELECT_CITY = "SELECT_CITY";
 export const CHANGE_INPUT = "CHANGE_INPUT";
 export const CHANGE_MAP = "CHANGE_MAP";
-export const CHANGE_WEEKLY = "CHANGE_WEEKLY";
+export const CHANGE_DAILY = "CHANGE_DAILY";
 export const CHANGE_HOURLY = "CHANGE_HOURLY";
+export const CHANGE_TODAY = "CHANGE_TODAY";
 
 export const changeInput = (input) => ({
     type:CHANGE_INPUT,
     input
 })
-
-
 
 export const changeCity = (city) =>({
     type:CHANGE_CITY,
@@ -70,18 +69,20 @@ export const selectCity = (idx) => ({
     idx
 })
 
-export const changeMap = (lat, lon) => ({
-    type:CHANGE_MAP,
-    latitude:lat,
-    longitude:lon
-})
-
-export const changeWeekly = (weeklyArray) => ({
-    type:CHANGE_WEEKLY,
-    weeklyArray
+export const changeDaily = (dailyArray) => ({
+    type:CHANGE_DAILY,
+    dailyArray
 })
 
 export const changeHourly = (hourlyArray) => ({
     type:CHANGE_HOURLY,
     hourlyArray
 })
+
+export const changeToday = (todayArray) => ({
+    type:CHANGE_TODAY,
+    todayArray
+})
+
+
+
