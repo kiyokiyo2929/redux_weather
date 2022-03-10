@@ -1,4 +1,6 @@
 export const CHANGE_CITY = "CHANGE_CITY";
+export const CHANGE_COUNTRY = "CHANGE_COUNTRY";
+export const CHANGE_STATE = "CHANGE_STATE";
 export const CHANGE_LAT = "CHANGE_LAT";
 export const CHANGE_LON = "CHANGE_LON"
 export const INITIALIZE_CITY = "INITIALIZE_CITY";
@@ -8,20 +10,28 @@ export const RECEIVE_DATA_FAILED = "RECEIVE_DATA_FAILED";
 export const RECEIVE_DATA_RETURN = "RECEIVE_DATA_RETURN"
 export const SELECT_CITY = "SELECT_CITY";
 export const CHANGE_INPUT = "CHANGE_INPUT";
-export const NOT_FIND = "NOT_FIND"
+export const CHANGE_MAP = "CHANGE_MAP";
+export const CHANGE_WEEKLY = "CHANGE_WEEKLY";
+export const CHANGE_HOURLY = "CHANGE_HOURLY";
 
 export const changeInput = (input) => ({
     type:CHANGE_INPUT,
     input
 })
 
-export const notFind = () => ({
-    type:NOT_FIND
-})
+
 
 export const changeCity = (city) =>({
     type:CHANGE_CITY,
     city
+})
+export const changeCountry = (country) =>({
+    type:CHANGE_COUNTRY,
+    country
+})
+export const changeState = (state) =>({
+    type:CHANGE_STATE,
+    state
 })
 
 export const changeLat = (lat) =>({
@@ -58,4 +68,20 @@ export const receiveDataReturn = () => ({
 export const selectCity = (idx) => ({
     type:SELECT_CITY,
     idx
+})
+
+export const changeMap = (lat, lon) => ({
+    type:CHANGE_MAP,
+    latitude:lat,
+    longitude:lon
+})
+
+export const changeWeekly = (weeklyArray) => ({
+    type:CHANGE_WEEKLY,
+    weeklyArray
+})
+
+export const changeHourly = (hourlyArray) => ({
+    type:CHANGE_HOURLY,
+    hourlyArray
 })

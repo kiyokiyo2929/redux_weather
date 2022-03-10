@@ -1,11 +1,13 @@
 import { combineReducers } from "redux";
-import { CHANGE_INPUT, NOT_FIND, CHANGE_CITY, CHANGE_LAT, CHANGE_LON, INITIALIZE_CITY, REQEST_DATA, RECEIVE_DATA_SUCCESS, RECEIVE_DATA_FAILED, RECEIVE_DATA_RETURN, SELECT_CITY } from "./actions";
+import { CHANGE_INPUT, CHANGE_CITY, CHANGE_COUNTRY, CHANGE_STATE, CHANGE_LAT, CHANGE_LON, INITIALIZE_CITY, REQEST_DATA, RECEIVE_DATA_SUCCESS, RECEIVE_DATA_FAILED, RECEIVE_DATA_RETURN, SELECT_CITY, CHANGE_WEEKLY, CHANGE_HOURLY } from "./actions";
 
 const initialState = {
     city:{
         name:"",
-        lat:"",
-        lon:"",
+        lat:52.519334503212846,
+        lon:13.415270749959939,
+        country:"",
+        state:"",
     },
     list:{
         isFetching:false,
@@ -15,7 +17,20 @@ const initialState = {
     },
     input:{
         inputName:"",
+    },
+    weeklyWeather:{
+        weeklyArray:[]
+    },
+    hourlyWeather:{
+        hourlyArray:[]
     }
+    // map:{
+    //     width: '42.5vw',
+    //     height:'25vh',
+    //     latitude:52.519334503212846,
+    //     longitude:13.415270749959939, 
+    //     zoom:10
+    // }
 }
 
 const inputReducer = (state = initialState.input, action) => {
@@ -36,6 +51,16 @@ const cityReducer = (state = initialState.city, action) => {
             return {
                 ...state,
                 name:action.city
+            }
+        case CHANGE_COUNTRY:
+            return {
+                ...state,
+                country:action.country
+            }
+        case CHANGE_STATE:
+            return {
+                ...state,
+                state:action.state
             }
         case CHANGE_LAT:
             return {
@@ -90,10 +115,49 @@ const listReducer = (state =initialState.list, action) => {
    }
 }
 
+// const mapReducer = (state = initialState.map, action) => {
+//     switch (action.type){
+//        case CHANGE_MAP:
+//            return {
+//                ...state,
+//                latitude: lat,
+//                longitude: lon
+//            }
+//        default:
+//            return state
+//         }
+// }
+
+const weeklyReducer = (state = initialState.weeklyWeather, action ) => {
+        switch(action.type){
+            case CHANGE_WEEKLY:
+                return {
+                    ...state,
+                    weeklyArray:action.weeklyArray
+                }
+            default:
+                 return state
+        }
+}
+
+const hourlyReducer = (state = initialState.hourlyWeather, action ) => {
+        switch(action.type){
+            case CHANGE_HOURLY:
+                return {
+                    ...state,
+                    hourlyArray:action.hourlyArray
+                }
+            default:
+                 return state
+        }
+}
+
 const rootReducer = combineReducers({
     cityReducer,
     listReducer,
-    inputReducer
+    inputReducer,
+    weeklyReducer,
+    hourlyReducer
 })
 
 export default rootReducer

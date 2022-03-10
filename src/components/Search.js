@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-import { changeCity, requestData, receiveDataSuccess, receiveDataFailed, receiveDataReturn, selectCity, changeInput } from "./actions";
+import { changeCity, changeCountry, changeState, requestData, receiveDataSuccess, receiveDataFailed, receiveDataReturn, selectCity, changeInput, changeLat, changeLon } from "./actions";
 import { useSelector, useDispatch } from "react-redux";
 
 let key = process.env.REACT_APP_API_KEY;
@@ -43,7 +43,13 @@ const Search = () => {
 
     const select_number = (e) => {
         let selectedCity = listArray[e.target.value];
-        dispatch(receiveDataReturn())
+        dispatch(receiveDataReturn());
+        dispatch(changeCity(selectedCity.name));
+        dispatch(changeCountry(selectedCity.country));
+        dispatch(changeLat(selectedCity.lat));
+        dispatch(changeLon(selectedCity.lon));
+        (selectedCity.state)?dispatch(changeState(selectedCity.state)):dispatch(changeState(""))
+
         console.log(selectedCity)
     }
 
