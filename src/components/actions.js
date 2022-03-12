@@ -14,6 +14,8 @@ export const CHANGE_MAP = "CHANGE_MAP";
 export const CHANGE_DAILY = "CHANGE_DAILY";
 export const CHANGE_HOURLY = "CHANGE_HOURLY";
 export const CHANGE_TODAY = "CHANGE_TODAY";
+export const CHANGE_ADDITIONAL = "CHANGE_ADDITIONAL";
+export const CHANGE_LOCALTIME = "CHANGE_LOCALTIME";
 
 export const changeInput = (input) => ({
     type:CHANGE_INPUT,
@@ -79,9 +81,19 @@ export const changeHourly = (hourlyArray) => ({
     hourlyArray
 })
 
-export const changeToday = (todayArray) => ({
+export const changeToday = (todayData) => ({
     type:CHANGE_TODAY,
-    todayArray
+    todayData
+})
+
+export const changeAdditional = (addtionalData) => ({
+    type:CHANGE_ADDITIONAL,
+    addtionalData
+})
+
+export const changeLocalTime = (localTime) => ({
+    type:CHANGE_LOCALTIME,
+    localTime
 })
 
 

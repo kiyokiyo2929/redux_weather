@@ -1,12 +1,7 @@
 import React, {useEffect} from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-import { changeToday } from "./actions";
-
-let key = process.env.REACT_APP_API_KEY;
-let current_report_url;
-let todaytData;
-let localtime
+import { changeToday, changeAdditional, changeLocaltime  } from "./actions";
 
 
 const get_local_day_hour = (unix_timestamp, localtime)=>{
@@ -15,43 +10,28 @@ const get_local_day_hour = (unix_timestamp, localtime)=>{
     return newhour
 }
 
-const getCurrentData = () => {
-    axios.get(current_report_url)
-    .then(response => {
-        localtime = response.data.timezone
-        todaytData = response.data
-    })
-    .catch(err =>{
-        console.log(err)
-    })
-}
-
 const TodayReport = () => {
-    const lat = useSelector(state => state.cityReducer.lat);
-    const lon = useSelector(state => state.cityReducer.lon);
-    const today_report = useSelector(state => state.todayReducer.todayArray);
-    const additional_data = useSelector(state => state.dailyReducer.dailyArray)
-    current_report_url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${key}`
+    const today_report = useSelector(state => state.todayReducer.todayData);
+    const additional_today_report = useSelector(state => state.todayReducer.addtionalData)
+    const local_Time = useSelector(state => state.todayReducer.localTime)
+    let utc = new Date();
+    let current_time;
 
-    console.log(additional_data)
+    if(local_Time){
+        current_time = utc.toLocaleString('en-US', { timeZone: local_Time });
+    }
 
-    useEffect(()=>{
-        getCurrentData()
-    }, [current_report_url])
 
-    const dispatch = useDispatch();
-    dispatch(changeToday(todaytData))
-
-    console.log(today_report)
-    
     return(
         <div>
             {today_report?
             <div>
               <h2>Today Weather</h2>
-              <p>{get_local_day_hour(today_report.dt, localtime)}</p>
+              <p>{current_time}</p>
               <p>{today_report.weather[0].main} / {today_report.weather[0].description}</p>
               <p>{ Math.floor(today_report.main.temp)}°</p>
+              <p>Sunrise {get_local_day_hour(additional_today_report.sunrise, today_report.timezone)}</p>
+              <p>Sunset {get_local_day_hour(additional_today_report.sunset, today_report.timezone)}</p>
             </div>
             :
             <></>

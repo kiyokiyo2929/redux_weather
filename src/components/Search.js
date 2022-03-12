@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-import { changeCity, changeCountry, changeState, requestData, receiveDataSuccess, receiveDataFailed, receiveDataReturn, selectCity, changeInput, changeLat, changeLon } from "./actions";
+import { changeAdditional, changeToday, changeDaily, changeHourly, changeCity, changeCountry, changeState, requestData, receiveDataSuccess, receiveDataFailed, receiveDataReturn, changeLocalTime, selectCity, changeInput, changeLat, changeLon } from "./actions";
 import { useSelector, useDispatch } from "react-redux";
 
 let key = process.env.REACT_APP_API_KEY;
@@ -49,8 +49,48 @@ const Search = () => {
         dispatch(changeLat(selectedCity.lat));
         dispatch(changeLon(selectedCity.lon));
         (selectedCity.state)?dispatch(changeState(selectedCity.state)):dispatch(changeState(""))
+        getToday_data(selectedCity.lat, selectedCity.lon)
+        getDaily_data(selectedCity.lat, selectedCity.lon)
+        getHourly_data(selectedCity.lat, selectedCity.lon)
+        
+    }
 
-        console.log(selectedCity)
+    const getToday_data = (lat_today, lon_today) => {
+        let current_report_url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat_today}&lon=${lon_today}&units=metric&appid=${key}`
+        axios.get(current_report_url)
+        .then(response =>{
+            dispatch(changeToday(response.data))
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+    }
+
+    const getDaily_data = (lat_daily, lon_daily) => {
+        let daily_report_url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat_daily}&lon=${lon_daily}&exclude=current,minutely,hourly&units=metric&appid=${key}`;
+        axios.get(daily_report_url)
+        .then(response => {
+            let daily_data = response.data.daily
+            let additioanl_today_data = daily_data.shift();
+            dispatch(changeDaily(daily_data))
+            dispatch(changeAdditional(additioanl_today_data))
+            dispatch(changeLocalTime(response.data.timezone))
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+
+    const getHourly_data = (lat_hourly, lon_hourly) => {
+        let hourly_report_url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat_hourly}&lon=${lon_hourly}&exclude=daily,minutely&units=metric&appid=${key}`
+        axios.get(hourly_report_url)
+        .then(response => {
+            let hourly_data = (response.data.hourly).slice(0, 23);
+            dispatch(changeHourly(hourly_data))
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     return (

@@ -1,13 +1,7 @@
 import React, {useEffect} from "react";
 import axios from "axios";
 import {useSelector, useDispatch} from "react-redux";
-import { changeDaily} from "./actions";
 
-let key = process.env.REACT_APP_API_KEY;
-let daily_report_url;
-let dailyData;
-let localtime;
-let additionalData_today;
 
 const get_local_day_hour = (unix_timestamp, localtime)=>{
     let date = new Date((unix_timestamp + localtime) * 1000);
@@ -21,33 +15,12 @@ const get_local_day = (unix_timestamp, localtime)=>{
     return newday
 }
 
-const getDailyData = () => {
-    axios.get(daily_report_url)
-    .then(response => {
-        localtime = response.data.timezone_offset;
-        dailyData = response.data.daily
-        console.log(dailyData)
-    })
-    .catch(err =>{
-        console.log(err)
-    })
-}
 
 const DailyReports = () => {
-    const lat = useSelector(state => state.cityReducer.lat);
-    const lon = useSelector(state => state.cityReducer.lon);
+
     const daily_report = useSelector(state => state.dailyReducer.dailyArray);
-    daily_report_url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly&units=metric&appid=${key}`;
-
-
-    useEffect(()=>{
-        getDailyData()
-    }, [daily_report_url])
-
-    const dispatch = useDispatch();
-    dispatch(changeDaily(dailyData))
-    console.log(daily_report)
-
+    const today_data = useSelector(state => state.todayReducer.todayData)
+    let localtime = today_data.timezone;
 
     return (
         <div>

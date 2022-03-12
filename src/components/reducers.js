@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { CHANGE_INPUT, CHANGE_CITY, CHANGE_COUNTRY, CHANGE_STATE, CHANGE_LAT, CHANGE_LON, INITIALIZE_CITY, REQEST_DATA, RECEIVE_DATA_SUCCESS, RECEIVE_DATA_FAILED, RECEIVE_DATA_RETURN, SELECT_CITY, CHANGE_DAILY, CHANGE_HOURLY, CHANGE_TODAY} from "./actions";
+import { CHANGE_INPUT, CHANGE_CITY, CHANGE_COUNTRY, CHANGE_STATE, CHANGE_LAT, CHANGE_LON, INITIALIZE_CITY, REQEST_DATA, RECEIVE_DATA_SUCCESS, RECEIVE_DATA_FAILED, RECEIVE_DATA_RETURN, SELECT_CITY, CHANGE_DAILY, CHANGE_HOURLY, CHANGE_TODAY, CHANGE_ADDITIONAL, CHANGE_LOCALTIME} from "./actions";
 
 const initialState = {
     city:{
@@ -25,7 +25,9 @@ const initialState = {
         hourlyArray:[]
     },
     todayWeather:{
-        todayArray:"",
+        todayData:"",
+        addtionalData:"",
+        localTime:""
     }
 
 }
@@ -142,7 +144,17 @@ const todayReducer = (state = initialState.todayWeather, action) => {
         case CHANGE_TODAY:
             return {
                 ...state,
-                todayArray:action.todayArray
+                todayData:action.todayData
+            }
+        case CHANGE_ADDITIONAL:
+            return {
+                ...state,
+                addtionalData:action.addtionalData
+            }
+        case CHANGE_LOCALTIME:
+            return {
+                ...state,
+                localTime:action.localTime
             }
         default:
             return state
