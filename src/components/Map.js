@@ -1,7 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import ReactMapGl from "react-map-gl";
+import ReactMapGl, {Marker}  from "react-map-gl";
 import 'mapbox-gl/dist/mapbox-gl.css';
+import {Room} from '@material-ui/icons'
+
 
 const token = process.env.REACT_APP_MAP_KEY;
 
@@ -22,7 +24,16 @@ const Map = () => {
           <ReactMapGl
                     {...viewport}
                     mapboxApiAccessToken={token} 
-          ></ReactMapGl>
+          >
+             <Marker 
+               key = {lat}
+               latitude={lat}
+               longitude={lon}
+               offsetLeft={-20} 
+               offsetTop={-10}
+           > 
+            <p><Room style={{fontSize:viewport.zoom*5, color:'black'}}/></p></Marker>
+            </ReactMapGl>
         </div>
     )
 }

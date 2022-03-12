@@ -18,8 +18,6 @@ const TodayReport = () => {
     let utc = new Date();
     let current_time;
 
-    console.log(today_report)
-
     if(local_Time){
         current_time = utc.toLocaleString('en-GB', { timeZone: local_Time });
     }
