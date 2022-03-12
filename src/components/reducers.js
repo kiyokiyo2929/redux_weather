@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { CHANGE_INPUT, CHANGE_CITY, CHANGE_COUNTRY, CHANGE_STATE, CHANGE_LAT, CHANGE_LON, INITIALIZE_CITY, REQEST_DATA, RECEIVE_DATA_SUCCESS, RECEIVE_DATA_FAILED, RECEIVE_DATA_RETURN, SELECT_CITY, CHANGE_DAILY, CHANGE_HOURLY, CHANGE_TODAY, CHANGE_ADDITIONAL, CHANGE_LOCALTIME} from "./actions";
+import {  CHANGE_INPUT, CHANGE_CITY, CHANGE_COUNTRY, CHANGE_STATE, CHANGE_LAT, CHANGE_LON, INITIALIZE_CITY, REQEST_DATA, RECEIVE_DATA_SUCCESS, RECEIVE_DATA_FAILED, RECEIVE_DATA_RETURN, SELECT_CITY, CHANGE_DAILY, CHANGE_HOURLY, CHANGE_TODAY, CHANGE_ADDITIONAL, CHANGE_LOCALTIME } from "./actions";
 
 const initialState = {
     city:{
@@ -28,8 +28,7 @@ const initialState = {
         todayData:"",
         addtionalData:"",
         localTime:""
-    }
-
+    },
 }
 
 const inputReducer = (state = initialState.input, action) => {
@@ -108,12 +107,10 @@ const listReducer = (state =initialState.list, action) => {
                 ...state,
                 idex:action.idx
             }
-      
        default:
            return state
    }
 }
-
 
 const dailyReducer = (state = initialState.dailyWeather, action ) => {
         switch(action.type){
@@ -161,6 +158,7 @@ const todayReducer = (state = initialState.todayWeather, action) => {
     }
 }
 
+
 const rootReducer = combineReducers({
     cityReducer,
     listReducer,
@@ -169,5 +167,7 @@ const rootReducer = combineReducers({
     hourlyReducer,
     todayReducer,
 })
+
+
 
 export default rootReducer

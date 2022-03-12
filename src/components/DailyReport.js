@@ -21,6 +21,7 @@ const DailyReports = () => {
     const daily_report = useSelector(state => state.dailyReducer.dailyArray);
     const today_data = useSelector(state => state.todayReducer.todayData)
     let localtime = today_data.timezone;
+    
 
     return (
         <div>

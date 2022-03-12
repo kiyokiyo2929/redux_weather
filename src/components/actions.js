@@ -10,12 +10,12 @@ export const RECEIVE_DATA_FAILED = "RECEIVE_DATA_FAILED";
 export const RECEIVE_DATA_RETURN = "RECEIVE_DATA_RETURN"
 export const SELECT_CITY = "SELECT_CITY";
 export const CHANGE_INPUT = "CHANGE_INPUT";
-export const CHANGE_MAP = "CHANGE_MAP";
 export const CHANGE_DAILY = "CHANGE_DAILY";
 export const CHANGE_HOURLY = "CHANGE_HOURLY";
 export const CHANGE_TODAY = "CHANGE_TODAY";
 export const CHANGE_ADDITIONAL = "CHANGE_ADDITIONAL";
 export const CHANGE_LOCALTIME = "CHANGE_LOCALTIME";
+
 
 export const changeInput = (input) => ({
     type:CHANGE_INPUT,
@@ -95,6 +95,4 @@ export const changeLocalTime = (localTime) => ({
     type:CHANGE_LOCALTIME,
     localTime
 })
-
-
 

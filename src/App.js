@@ -6,18 +6,17 @@ import Map from "./components/Map";
 import DailyReports from './components/DailyReport';
 import HourlyReports from './components/HourlyReport';
 import TodayReport from './components/TodayReport';
-import Today_Information from './components/Today_Information';
 
 function App() {
   return (
     <div className="App">
       <Search/>
-      <Today_Information/>
-      <Information/>
       <Map/>
+      <TodayReport/>
       <DailyReports/>
       <HourlyReports/>
-      <TodayReport/>
+      <Information/>
+  
     </div>
   );
 }

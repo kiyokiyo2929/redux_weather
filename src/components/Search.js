@@ -6,18 +6,13 @@ import { useSelector, useDispatch } from "react-redux";
 
 let key = process.env.REACT_APP_API_KEY;
 
-
-
 const Search = () => {
     const dispatch = useDispatch();
     const listArray = useSelector(state => state.listReducer.listArray)
-    const idx = useSelector(state => state.listReducer.idx)
-    const name = useSelector(state => state.cityReducer.name);
     const inputName = useSelector(state => state.inputReducer.inputName);
     const isFetching = useSelector(state => state.listReducer.isFetching);
     const notFind = useSelector(state => state.listReducer.notFind)
     let geo_url=`http://api.openweathermap.org/geo/1.0/direct?q=${inputName}&limit=5&appid=${key}`
-    console.log({notFind})
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -44,15 +39,23 @@ const Search = () => {
     const select_number = (e) => {
         let selectedCity = listArray[e.target.value];
         dispatch(receiveDataReturn());
+        // dispatch(changeCity(selectedCity.name));
+        // dispatch(changeCountry(selectedCity.country));
+        // dispatch(changeLat(selectedCity.lat));
+        // dispatch(changeLon(selectedCity.lon));
+        // (selectedCity.state)?dispatch(changeState(selectedCity.state)):dispatch(changeState(""))
+        getCity_data(selectedCity)
+        getToday_data(selectedCity.lat, selectedCity.lon)
+        getDaily_data(selectedCity.lat, selectedCity.lon)
+        getHourly_data(selectedCity.lat, selectedCity.lon)
+    }
+
+    const getCity_data = (selectedCity) => {
         dispatch(changeCity(selectedCity.name));
         dispatch(changeCountry(selectedCity.country));
         dispatch(changeLat(selectedCity.lat));
         dispatch(changeLon(selectedCity.lon));
         (selectedCity.state)?dispatch(changeState(selectedCity.state)):dispatch(changeState(""))
-        getToday_data(selectedCity.lat, selectedCity.lon)
-        getDaily_data(selectedCity.lat, selectedCity.lon)
-        getHourly_data(selectedCity.lat, selectedCity.lon)
-        
     }
 
     const getToday_data = (lat_today, lon_today) => {
@@ -119,17 +122,13 @@ const Search = () => {
                    <button type="Submit">Search</button>
             </form>
             }
-                     
-           
-            
+                      
             {notFind?
             <p>no result / {inputName}</p>
             : 
             <></>        
             }
-   
-           
-            
+       
         </div>
     )
 }
