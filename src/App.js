@@ -10,13 +10,21 @@ import TodayReport from './components/TodayReport';
 function App() {
   return (
     <div className="App">
-      <Search/>
-      <Map/>
-      <TodayReport/>
+      <header></header>
+      <main>
+      <div id="top-part">
+        <div id="top-part-left">
+          <Search/>
+          <TodayReport/>
+        </div>
+        <div id="top-part-right">
+          <Map/>
+        </div>
+      </div>
       <DailyReports/>
       <HourlyReports/>
-      <Information/>
-  
+      <footer></footer>
+      </main>
     </div>
   );
 }

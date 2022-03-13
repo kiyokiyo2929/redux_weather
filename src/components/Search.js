@@ -39,11 +39,6 @@ const Search = () => {
     const select_number = (e) => {
         let selectedCity = listArray[e.target.value];
         dispatch(receiveDataReturn());
-        // dispatch(changeCity(selectedCity.name));
-        // dispatch(changeCountry(selectedCity.country));
-        // dispatch(changeLat(selectedCity.lat));
-        // dispatch(changeLon(selectedCity.lon));
-        // (selectedCity.state)?dispatch(changeState(selectedCity.state)):dispatch(changeState(""))
         getCity_data(selectedCity)
         getToday_data(selectedCity.lat, selectedCity.lon)
         getDaily_data(selectedCity.lat, selectedCity.lon)

@@ -22,7 +22,7 @@ const HourlyReports = () => {
             <div>
                 <h2>Hourly Report</h2>
                 <h3>{today}</h3>
-                <ul>
+                <ul id="hourly-report-wrapper">
                     {hourly_report.map((report, idx) => (
                         <li key={idx}>
                             <h4>{get_local_day_hour(report.dt, localtime )}</h4>

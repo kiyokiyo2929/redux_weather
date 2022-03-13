@@ -21,7 +21,7 @@ const DailyReports = () => {
     const daily_report = useSelector(state => state.dailyReducer.dailyArray);
     const today_data = useSelector(state => state.todayReducer.todayData)
     let localtime = today_data.timezone;
-    
+
 
     return (
         <div>
@@ -29,7 +29,7 @@ const DailyReports = () => {
           {daily_report?
           <div>
             <h2>Daily Report</h2>
-            <ul>
+            <ul id="daily-report-wrapper">
                 {daily_report.map(report =>(
                     <li key={report.sunrise}>
                         <h4>{get_local_day(report.dt, localtime)}</h4>
