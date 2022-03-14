@@ -29,18 +29,26 @@ const TodayReport = () => {
             <div id="today-information-wrapper">
               <div id="today-weather-left">
                 {stateName !== ""?
-                <h3>{cityName} , {stateName} / {countryName}</h3>
+                <div>
+                    <div id="cityname-wrapper">
+                         <h3>{cityName}</h3>
+                    </div>
+                    <p>{stateName} / {countryName}</p>
+                </div>
                 :
-                <h3>{cityName} / {countryName}</h3>
+                <div>
+                    <h3>{cityName}</h3>
+                    <p>{countryName}</p>
+                </div>
                 }
-                <p>{current_time}</p>
-                <p>Sunrise {get_local_day_hour(additional_today_report.sunrise, today_report.timezone)}</p>
-                <p>Sunset {get_local_day_hour(additional_today_report.sunset, today_report.timezone)}</p>
+                <p className="today-sunrise-sunset-current">{current_time}</p>
+                <p className="today-sunrise-sunset-current">Sunrise {get_local_day_hour(additional_today_report.sunrise, today_report.timezone)}</p>
+                <p className="today-sunrise-sunset-current">Sunset {get_local_day_hour(additional_today_report.sunset, today_report.timezone)}</p>
               </div>
               <div id="today-weather-right">
                 <img src={`${process.env.PUBLIC_URL}/${today_report.weather[0].main}.svg`} id="today-report-icon"/> 
-                <p>{today_report.weather[0].main} / {today_report.weather[0].description}</p>
-                <p>{ Math.floor(today_report.main.temp)}° / feels {Math.floor(today_report.main.feels_like)}°</p>
+                <p className="today-weather-tmp-feel">{today_report.weather[0].main} / {today_report.weather[0].description}</p>
+                <p className="today-weather-tmp-feel">{ Math.floor(today_report.main.temp)}° / feels {Math.floor(today_report.main.feels_like)}°</p>
               </div>
             </div>
             :

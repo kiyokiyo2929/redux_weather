@@ -33,8 +33,8 @@ const DailyReports = () => {
                     <li key={idx}>
                         <h4>{get_local_day(report.dt, localtime)}</h4>
                         <img src={`${process.env.PUBLIC_URL}/${report.weather[0].main}.svg`} id="daily-report-icon"/> 
-                        <p>{report.weather[0].main}</p>
-                        <p>Max { Math.floor(report.temp.max)}° / Min  { Math.floor(report.temp.min)}°</p>
+                        <p className="daily-weather-tmp">{report.weather[0].main}</p>
+                        <p className="daily-weather-tmp">Max { Math.floor(report.temp.max)}° / Min  { Math.floor(report.temp.min)}°</p>
                         <p className="daily-sunrise-sunset">Sunrise {get_local_day_hour(report.sunrise, localtime)} </p>
                         <p className="daily-sunrise-sunset">Sunset {get_local_day_hour(report.sunset, localtime)}</p>
                     </li>

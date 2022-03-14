@@ -13,7 +13,7 @@ const Map = () => {
 
     const viewport = {
       width: '42.5vw',
-      height:'25vh',
+      height:'40vh',
       latitude:lat,
       longitude:lon, 
       zoom:5

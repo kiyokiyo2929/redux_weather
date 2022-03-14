@@ -39,23 +39,68 @@ main {
   display: flex;
 }
 
+.search-form-and-select {
+  min-height: 10vh;
+}
+
 #search-input {
   width: 42.5vw;
+  height: 3.5vh;
   box-sizing: border-box;
   padding: 0;
-  margin: 0;
+  margin-bottom: 1vh;
+  border-radius: 0;
+  border: dashed 2px black;
 }
 
 #search-btn {
   width: 42.5vw;
+  height: 3.5vh;
   padding: 0;
   margin: 0;
+  color: white;
+  background: black;
+  font-size: 1.5vw;
+  letter-spacing: 0.3vw;
+  font-weight: bold;
+}
+
+#search-select {
+  width: 42.5vw;
+  height: 3.5vh;
+  border-radius: 0;
+}
+
+.search-option {
+  width: 42.5vw;
+  height: 3.5vh;
 }
 
 /* today-weather */
 #today-information-wrapper {
   display: flex;
   justify-content: space-between;
+}
+
+#today-weather-left h3 {
+  text-align: left;
+  font-size: 4vw;
+  line-height: 6vh;
+  margin-top: 0;
+  margin-bottom: 1vh;
+}
+
+#today-weather-left p {
+  text-align: left;
+}
+
+#cityname-wrapper {
+  height: 11vh;
+}
+
+.today-sunrise-sunset-current {
+  margin-top: 0vh;
+  margin-bottom: 0vh;
 }
 
 /* top-right */
@@ -65,6 +110,13 @@ main {
 
 #today-report-icon {
   width: 7.5vw;
+  margin-bottom: 4vh;
+}
+
+.today-weather-tmp-feel {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1.5vw;
 }
 
 /* daily-report */
@@ -72,6 +124,25 @@ main {
   display: flex;
   list-style: none;
   justify-content: space-between;
+  padding-left: 0;
+}
+
+#daily-report-wrapper > li {
+  width: calc(100% / 7);
+  border-left: solid 1px lightgray;
+}
+#daily-report-wrapper > li:last-child {
+  border-right: solid 1px lightgray;
+}
+
+#daily-report-wrapper h4 {
+  margin-top: 0.7vh;
+  margin-bottom: 0.7vh;
+}
+
+.daily-weather-tmp {
+  margin-top: 0.7vh;
+  margin-bottom: 0.7vh;
 }
 
 #daily-report-icon {
@@ -86,13 +157,23 @@ main {
 
 /* hourly-report */
 #hourly-report-wrapper {
+  margin-left: 0;
+  padding-left: 0;
   display: flex;
   list-style: none;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 #hourly-report-wrapper > li {
+  margin-bottom: 0.5vh;
   width: 7vw;
+  background: whitesmoke;
+}
+
+#hourly-report-wrapper h4 {
+  margin-top: 0.7vh;
+  margin-bottom: 0.7vh;
 }
 
 #hourly-report-wrapper p {

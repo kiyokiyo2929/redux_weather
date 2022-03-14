@@ -92,31 +92,30 @@ const Search = () => {
     }
 
     return (
-       
         <div>
             {isFetching?
-             <form>
-                    <select onChange={(e)=>select_number(e)}>
+             <form className="search-form-and-select">
+                    <select onChange={(e)=>select_number(e)} id="search-select">
                             {listArray.map((listItem, idx )=>(
                                 (idx == 0)?
-                                <option key={idx} value={idx}>
+                                <option key={idx} value={idx} className="seach-option">
                                 {listItem.name}
                                 </option>
-                            :<option key={idx} value={idx}>
+                            :<option key={idx} value={idx} className="seach-option">
                                 {listItem.name} / {listItem.country}  {listItem.state}
                                 </option>
                             ))}
                     </select>
              </form>
             :
-            <form onSubmit={e =>handleSubmit(e)} >
+            <form onSubmit={e =>handleSubmit(e)} className="search-form-and-select">
                     <input  onChange={e => dispatch(changeInput(e.target.value))}  type="text" id="search-input" />
                     <button type="Submit" id="search-btn">Search</button>
             </form>
             }
                       
             {notFind?
-            <p>no result / {inputName}</p>
+            <p>No Result / {inputName}</p>
             : 
             <></>        
             }
