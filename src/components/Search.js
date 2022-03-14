@@ -99,10 +99,10 @@ const Search = () => {
                     <select onChange={(e)=>select_number(e)}>
                             {listArray.map((listItem, idx )=>(
                                 (idx == 0)?
-                                <option key={listItem.lat} value={idx}>
+                                <option key={idx} value={idx}>
                                 {listItem.name}
                                 </option>
-                            :<option key={listItem.lat} value={idx}>
+                            :<option key={idx} value={idx}>
                                 {listItem.name} / {listItem.country}  {listItem.state}
                                 </option>
                             ))}
