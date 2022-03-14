@@ -28,12 +28,13 @@ const DailyReports = () => {
           
           {daily_report?
           <div>
-            <h2>Daily Report</h2>
             <ul id="daily-report-wrapper">
                 {daily_report.map(report =>(
                     <li key={report.sunrise}>
                         <h4>{get_local_day(report.dt, localtime)}</h4>
-                        <p>{report.weather[0].main} /Max { Math.floor(report.temp.max)}° / Min  { Math.floor(report.temp.min)}°</p>
+                        <img src={`${process.env.PUBLIC_URL}/${report.weather[0].main}.svg`} id="daily-report-icon"/> 
+                        <p>{report.weather[0].main}</p>
+                        <p>Max { Math.floor(report.temp.max)}° / Min  { Math.floor(report.temp.min)}°</p>
                         <p>Sunrise{get_local_day_hour(report.sunrise, localtime)}</p>
                         <p>Sunset{get_local_day_hour(report.sunset, localtime)}</p>
                     </li>

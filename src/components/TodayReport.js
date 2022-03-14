@@ -26,19 +26,22 @@ const TodayReport = () => {
     return(
         <div>
             {today_report?
-            <div>
-              <h2>Today Weather</h2>
-              {stateName !== ""?
-               <h3>{cityName} , {stateName} / {countryName}</h3>
-              :
-              <h3>{cityName} / {countryName}</h3>
-              }
-              <p>{current_time}</p>
-              <p>{today_report.weather[0].main} / {today_report.weather[0].description}</p>
-              <p>{ Math.floor(today_report.main.temp)}°</p>
-              <p>feels {Math.floor(today_report.main.feels_like)}°</p>
-              <p>Sunrise {get_local_day_hour(additional_today_report.sunrise, today_report.timezone)}</p>
-              <p>Sunset {get_local_day_hour(additional_today_report.sunset, today_report.timezone)}</p>
+            <div id="today-information-wrapper">
+              <div id="today-weather-left">
+                {stateName !== ""?
+                <h3>{cityName} , {stateName} / {countryName}</h3>
+                :
+                <h3>{cityName} / {countryName}</h3>
+                }
+                <p>{current_time}</p>
+                <p>Sunrise {get_local_day_hour(additional_today_report.sunrise, today_report.timezone)}</p>
+                <p>Sunset {get_local_day_hour(additional_today_report.sunset, today_report.timezone)}</p>
+              </div>
+              <div id="today-weather-right">
+                <img src={`${process.env.PUBLIC_URL}/${today_report.weather[0].main}.svg`} id="today-report-icon"/> 
+                <p>{today_report.weather[0].main} / {today_report.weather[0].description}</p>
+                <p>{ Math.floor(today_report.main.temp)}° / feels {Math.floor(today_report.main.feels_like)}°</p>
+              </div>
             </div>
             :
             <></>

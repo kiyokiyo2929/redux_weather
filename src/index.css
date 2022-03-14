@@ -11,21 +11,82 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+header {
+  height: 5vh;
+}
 main {
   width: 90vw;
   margin-left: 5vw;
 }
 
+/* top-part */
+
 #top-part {
   display: flex;
+}
+
+/* top-left */
+
+#top-part-left {
+  width: 42.5vw;
+  margin-right: 2.5vw;
+}
+
+/* search */
+#search-input-flex {
+  display: flex;
+}
+
+#search-input {
+  width: 42.5vw;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+#search-btn {
+  width: 42.5vw;
+  padding: 0;
+  margin: 0;
+}
+
+/* today-weather */
+#today-information-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* top-right */
+#top-part-right {
+  margin-left: 2.5vw;
+}
+
+#today-report-icon {
+  width: 8vw;
 }
 
 /* daily-report */
 #daily-report-wrapper {
   display: flex;
+  list-style: none;
+  justify-content: space-between;
+}
+
+#daily-report-icon {
+  width: 4vw;
 }
 
 /* hourly-report */
 #hourly-report-wrapper {
   display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+#hourly-report-wrapper > li {
+  width: 7vw;
+}
+
+#hourly-report-icon {
+  width: 2.5vw;
 }

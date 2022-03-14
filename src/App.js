@@ -21,8 +21,8 @@ function App() {
           <Map/>
         </div>
       </div>
-      <DailyReports/>
       <HourlyReports/>
+      <DailyReports/>
       <footer></footer>
       </main>
     </div>

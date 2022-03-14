@@ -83,7 +83,7 @@ const Search = () => {
         let hourly_report_url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat_hourly}&lon=${lon_hourly}&exclude=daily,minutely&units=metric&appid=${key}`
         axios.get(hourly_report_url)
         .then(response => {
-            let hourly_data = (response.data.hourly).slice(0, 23);
+            let hourly_data = (response.data.hourly).slice(0, 24);
             dispatch(changeHourly(hourly_data))
         })
         .catch(err => {
@@ -109,12 +109,9 @@ const Search = () => {
                     </select>
              </form>
             :
-            <form onSubmit={e =>handleSubmit(e)}>
-                    <label>
-                         City:
-                        <input  onChange={e => dispatch(changeInput(e.target.value))}/>
-                    </label>
-                   <button type="Submit">Search</button>
+            <form onSubmit={e =>handleSubmit(e)} >
+                    <input  onChange={e => dispatch(changeInput(e.target.value))}  type="text" id="search-input" />
+                    <button type="Submit" id="search-btn">Search</button>
             </form>
             }
                       

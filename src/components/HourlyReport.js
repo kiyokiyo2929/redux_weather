@@ -20,12 +20,11 @@ const HourlyReports = () => {
             
             {hourly_report?
             <div>
-                <h2>Hourly Report</h2>
-                <h3>{today}</h3>
                 <ul id="hourly-report-wrapper">
                     {hourly_report.map((report, idx) => (
                         <li key={idx}>
                             <h4>{get_local_day_hour(report.dt, localtime )}</h4>
+                            <img src={`${process.env.PUBLIC_URL}/${report.weather[0].main}.svg`} id="hourly-report-icon"/> 
                             <p>{report.weather[0].main} / { Math.floor(report.temp)}°</p>
                         </li>
                     ))}
