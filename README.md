@@ -11,9 +11,6 @@ React (react hooks) + API + Redux
 
 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-
 openweathermap (Weather forecast data) https://openweathermap.org/
 
 mapbox (Map data) https://www.mapbox.com/
