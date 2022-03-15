@@ -277,6 +277,7 @@ main {
   #search-btn {
     width: 90vw;
     height: 6vh;
+    font-size: 4vw;
   }
   #search-select {
     width: 90vw;
