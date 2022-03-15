@@ -272,12 +272,15 @@ main {
   }
   #search-input {
     width: 90vw;
+    height: 6vh;
   }
   #search-btn {
     width: 90vw;
+    height: 6vh;
   }
   #search-select {
     width: 90vw;
+    height: 6vh;
   }
 
   /* today-part */
