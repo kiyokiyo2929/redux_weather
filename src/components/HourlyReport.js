@@ -15,6 +15,8 @@ const HourlyReports = () => {
     const today_data = useSelector(state => state.todayReducer.todayData)
     let localtime = today_data.timezone;
 
+    
+
     return (
         <div id="hourly-report-section">
             

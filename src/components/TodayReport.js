@@ -22,7 +22,9 @@ const TodayReport = () => {
     let current_time;
 
     if(local_Time){
-        current_time = utc.toLocaleString('en-GB', { timeZone: local_Time });
+        let current_time_data = utc.toLocaleString('en-GB', { timeZone: local_Time });
+        current_time = current_time_data.slice(0, 17)
+
     }
 
 
@@ -49,8 +51,8 @@ const TodayReport = () => {
                     </div>
                     }
                     <p className="today-sunrise-sunset-current">{current_time}</p>
-                    <p className="today-sunrise-sunset-current">Sunrise {get_local_day_hour(additional_today_report.sunrise, today_report.timezone)}</p>
-                    <p className="today-sunrise-sunset-current">Sunset {get_local_day_hour(additional_today_report.sunset, today_report.timezone)}</p>
+                    <p className="today-sunrise-sunset-current">Sunrise <span className="font-bold">{get_local_day_hour(additional_today_report.sunrise, today_report.timezone)}</span></p>
+                    <p className="today-sunrise-sunset-current">Sunset <span className="font-bold"> {get_local_day_hour(additional_today_report.sunset, today_report.timezone)}</span></p>
                 </div>
                 <div id="today-weather-right">
                     <img src={`${process.env.PUBLIC_URL}/${today_report.weather[0].main}.svg`} id="today-report-icon"/> 

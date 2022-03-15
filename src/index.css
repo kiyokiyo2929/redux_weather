@@ -237,7 +237,7 @@ main {
 }
 
 #hourly-report-wrapper > li {
-  margin-bottom: 0.5vh;
+  margin-bottom: 1vh;
   width: 7vw;
   background: whitesmoke;
 }
