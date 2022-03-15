@@ -12,8 +12,8 @@ const Map = () => {
     const lon = useSelector(state => state.cityReducer.lon);
 
     const viewport = {
-      width: '42.5vw',
-      height:'40vh',
+      width: '43.5vw',
+      height:'35vh',
       latitude:lat,
       longitude:lon, 
       zoom:5

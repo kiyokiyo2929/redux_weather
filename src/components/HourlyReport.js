@@ -16,10 +16,11 @@ const HourlyReports = () => {
     let localtime = today_data.timezone;
 
     return (
-        <div>
+        <div id="hourly-report-section">
             
             {hourly_report?
             <div>
+                <div id="hourly-report-title"><p>24 Hours Weather Reports</p></div>
                 <ul id="hourly-report-wrapper">
                     {hourly_report.map((report, idx) => (
                         <li key={idx}>

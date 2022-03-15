@@ -30,8 +30,8 @@ main {
 /* top-left */
 
 #top-part-left {
-  width: 42.5vw;
-  margin-right: 2.5vw;
+  width: 43.5vw;
+  margin-right: 1.5vw;
 }
 
 /* search */
@@ -44,7 +44,7 @@ main {
 }
 
 #search-input {
-  width: 42.5vw;
+  width: 43.5vw;
   height: 3.5vh;
   box-sizing: border-box;
   padding: 0;
@@ -54,7 +54,7 @@ main {
 }
 
 #search-btn {
-  width: 42.5vw;
+  width: 43.5vw;
   height: 3.5vh;
   padding: 0;
   margin: 0;
@@ -66,13 +66,13 @@ main {
 }
 
 #search-select {
-  width: 42.5vw;
+  width: 43.5vw;
   height: 3.5vh;
   border-radius: 0;
 }
 
 .search-option {
-  width: 42.5vw;
+  width: 43.5vw;
   height: 3.5vh;
 }
 
@@ -80,6 +80,7 @@ main {
 #today-information-wrapper {
   display: flex;
   justify-content: space-between;
+  height: 25vh;
 }
 
 #today-weather-left h3 {
@@ -98,6 +99,11 @@ main {
   height: 11vh;
 }
 
+.country-state-name {
+  margin-top: 0.8vh;
+  margin-bottom: 0.8vh;
+}
+
 .today-sunrise-sunset-current {
   margin-top: 0vh;
   margin-bottom: 0vh;
@@ -105,12 +111,14 @@ main {
 
 /* top-right */
 #top-part-right {
-  margin-left: 2.5vw;
+  margin-left: 1.5vw;
+  height: 35vh;
 }
 
 #today-report-icon {
-  width: 7.5vw;
-  margin-bottom: 4vh;
+  width: 8vw;
+  margin-top: 1vh;
+  margin-bottom: 1.5vh;
 }
 
 .today-weather-tmp-feel {
@@ -119,8 +127,17 @@ main {
   font-size: 1.5vw;
 }
 
+.font-bold {
+  font-weight: bold;
+}
+
 /* daily-report */
+#daily-report-section {
+  height: 22vh;
+  margin-top: 3vh;
+}
 #daily-report-wrapper {
+  margin-top: 0;
   display: flex;
   list-style: none;
   justify-content: space-between;
@@ -129,40 +146,94 @@ main {
 
 #daily-report-wrapper > li {
   width: calc(100% / 7);
-  border-left: solid 1px lightgray;
+  background-color: whitesmoke;
+  margin-right: 0.5vw;
+  /* border-left: solid 1px lightgray; */
 }
 #daily-report-wrapper > li:last-child {
-  border-right: solid 1px lightgray;
+  margin-right: 0;
+}
+
+#daily-date-part {
+  background-color: whitesmoke;
+  padding: 0 1vw 0 1vw;
+}
+
+#daily-report-title {
+  background-color: darkgray;
+  margin-bottom: 0;
+}
+#daily-report-title > p {
+  font-weight: bold;
+  margin-bottom: 1vh;
+  letter-spacing: 0.3vw;
 }
 
 #daily-report-wrapper h4 {
-  margin-top: 0.7vh;
-  margin-bottom: 0.7vh;
+  margin-top: 0.5vh;
+  margin-bottom: 1.8vh;
+}
+
+#icon-temp-info-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#weather-tmp-part-right {
+  text-align: left;
+  margin-left: 1vw;
+}
+
+#daily-weather-info {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
 }
 
 .daily-weather-tmp {
-  margin-top: 0.7vh;
-  margin-bottom: 0.7vh;
+  margin-top: 0vh;
+  margin-bottom: 0vh;
+  font-size: 1.7vh;
 }
 
 #daily-report-icon {
   width: 4vw;
-  height: 4vh;
+  height: 5.5vh;
 }
 
 .daily-sunrise-sunset {
-  margin-top: 3px;
-  margin-bottom: 3px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 1.7vh;
 }
 
 /* hourly-report */
+#hourly-report-section {
+  height: 27vh;
+  margin-top: 3vh;
+}
+
 #hourly-report-wrapper {
   margin-left: 0;
+  margin-bottom: 0;
+  margin-top: 0;
   padding-left: 0;
   display: flex;
   list-style: none;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+#hourly-report-title {
+  background-color: darkgray;
+  margin-bottom: 0;
+}
+
+#hourly-report-title > p {
+  font-weight: bold;
+  margin-bottom: 1vh;
+  margin-top: 1vh;
+  letter-spacing: 0.3vw;
 }
 
 #hourly-report-wrapper > li {
@@ -174,14 +245,16 @@ main {
 #hourly-report-wrapper h4 {
   margin-top: 0.7vh;
   margin-bottom: 0.7vh;
+  font-size: 1.8vh;
 }
 
 #hourly-report-wrapper p {
   margin-top: 3px;
   margin-bottom: 3px;
+  font-size: 1.8vh;
 }
 
 #hourly-report-icon {
   width: 2.2vw;
-  height: 3vh;
+  height: 2.5vh;
 }

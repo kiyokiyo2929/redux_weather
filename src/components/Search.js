@@ -21,7 +21,7 @@ const Search = () => {
         axios.get(geo_url)
         .then(response=>{
   
-            let firtOne = { name: 'Please select City', selector: true,  lat: 19.7589387, lon: -19.9031635, country: '', state: ''}
+            let firtOne = { name: 'Select City', selector: true,  lat: 19.7589387, lon: -19.9031635, country: '', state: ''}
             let listArray = response.data;
             listArray.unshift(firtOne)
             {(listArray.length === 1)?
@@ -112,14 +112,7 @@ const Search = () => {
                     <input  onChange={e => dispatch(changeInput(e.target.value))}  type="text" id="search-input" />
                     <button type="Submit" id="search-btn">Search</button>
             </form>
-            }
-                      
-            {notFind?
-            <p>No Result / {inputName}</p>
-            : 
-            <></>        
-            }
-       
+            }    
         </div>
     )
 }
