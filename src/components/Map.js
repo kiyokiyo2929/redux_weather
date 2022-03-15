@@ -20,7 +20,7 @@ const Map = () => {
     }
     
     return (
-        <div>
+        <div id="map-part">
           <ReactMapGl
                     {...viewport}
                     mapboxApiAccessToken={token} 
@@ -29,8 +29,8 @@ const Map = () => {
                key = {lat}
                latitude={lat}
                longitude={lon}
-               offsetLeft={-20} 
-               offsetTop={-10}
+               offsetLeft={-15} 
+               offsetTop={-35}
            > 
             <p><Room style={{fontSize:viewport.zoom*5, color:'black'}}/></p></Marker>
             </ReactMapGl>

@@ -109,6 +109,10 @@ main {
   margin-bottom: 0vh;
 }
 
+.today-weather-right {
+  width: 20vw;
+}
+
 /* top-right */
 #top-part-right {
   margin-left: 1.5vw;
@@ -125,6 +129,7 @@ main {
   margin-top: 0;
   margin-bottom: 0;
   font-size: 1.5vw;
+  width: 20vw;
 }
 
 .font-bold {
@@ -148,7 +153,6 @@ main {
   width: calc(100% / 7);
   background-color: whitesmoke;
   margin-right: 0.5vw;
-  /* border-left: solid 1px lightgray; */
 }
 #daily-report-wrapper > li:last-child {
   margin-right: 0;
@@ -257,4 +261,83 @@ main {
 #hourly-report-icon {
   width: 2.2vw;
   height: 2.5vh;
+}
+
+@media screen and (max-width: 767px) {
+  #top-part {
+    flex-direction: column;
+  }
+  .search-form-and-select {
+    width: 90vw;
+  }
+  #search-input {
+    width: 90vw;
+  }
+  #search-btn {
+    width: 90vw;
+  }
+  #search-select {
+    width: 90vw;
+  }
+
+  /* today-part */
+  #today-weather-left {
+    width: 45vw;
+    height: 40vh;
+  }
+
+  #today-weather-right {
+    width: 40vw;
+  }
+  #today-information-wrapper {
+    width: 90vw;
+    height: 30vh;
+  }
+  #today-report-icon {
+    width: 25vw;
+  }
+  .today-weather-tmp-feel {
+    font-size: 2.2vh;
+    width: 40vw;
+  }
+  /* map */
+  #map-part {
+    display: none;
+  }
+  #top-part-right {
+    height: 0;
+  }
+
+  /* hourly-forcast */
+  #hourly-report-section {
+    height: 75vh;
+  }
+  #hourly-report-wrapper {
+    height: 75vh;
+  }
+  #hourly-report-wrapper > li {
+    width: calc(100% / 6.5);
+    height: 15vh;
+    border-right: solid 0.1px white;
+  }
+  #hourly-report-icon {
+    width: 5vw;
+    margin-top: 1vh;
+  }
+
+  /* daily-report */
+  #daily-report-wrapper {
+    width: 90vw;
+    flex-wrap: wrap;
+  }
+
+  #daily-report-wrapper > li {
+    width: calc(100% / 4.2);
+    margin-top: 1vh;
+  }
+  #daily-report-wrapper:after {
+    content: "";
+    display: block;
+    width: calc(100% / 4);
+  }
 }
