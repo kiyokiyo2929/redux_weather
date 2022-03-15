@@ -55,6 +55,7 @@ const Search = () => {
 
     const getToday_data = (lat_today, lon_today) => {
         let current_report_url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat_today}&lon=${lon_today}&units=metric&appid=${key}`
+        console.log(current_report_url)
         axios.get(current_report_url)
         .then(response =>{
             dispatch(changeToday(response.data))
